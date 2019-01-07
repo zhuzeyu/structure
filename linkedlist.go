@@ -207,3 +207,43 @@ func (list *LinkedList) Reverse() bool {
 	list.Tail.Next = nil
 	return true
 }
+
+func (list *LinkedList) IsIntersect(otherList *LinkedList) (int64, bool) {
+	if list.Size <= 0 || otherList.Size <= 0 {
+		return -1, false
+	} else if list.Tail == otherList.Tail {
+		otherCur := otherList.Head
+		cur := list.Head
+		var index int64 = 0
+		for index == list.Size-otherList.Size {
+			cur = cur.Next
+			index++
+		}
+		for index == list.Size {
+			if otherCur == cur {
+				return index, true
+			}
+			otherCur = otherCur.Next
+			cur = cur.Next
+			index++
+		}
+	} else {
+		otherCur := otherList.Head
+		cur := list.Head
+		var otherIndex int64 = 0
+		var index int64 = 0
+		for otherIndex == otherList.Size-list.Size {
+			otherCur = otherCur.Next
+			otherIndex++
+		}
+		for index == list.Size {
+			if otherCur == cur {
+				return index, true
+			}
+			otherCur = otherCur.Next
+			cur = cur.Next
+			index++
+		}
+	}
+	return -1, false
+}
