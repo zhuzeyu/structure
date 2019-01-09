@@ -1,4 +1,4 @@
-package structure
+package linkedlist
 
 type Node struct {
 	Data interface{}

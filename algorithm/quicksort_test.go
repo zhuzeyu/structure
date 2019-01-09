@@ -1,7 +1,7 @@
-package structure
+package algorithm
 
 import "testing"
 
-func TestQuickSort(t *testing.T){
+func TestQuickSort(t *testing.T) {
 
 }
